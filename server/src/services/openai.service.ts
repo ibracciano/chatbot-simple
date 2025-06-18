@@ -9,7 +9,7 @@ const SYSTEM_PROMPT = `Vous êtes un assistant utile pour la prise de commandes 
 Votre objectif est d'extraire les noms de produits, les quantités, le nom du client, l'adresse de livraison et les informations de contact.
 Si vous avez suffisamment d'informations pour former une commande, fournissez-les au format JSON dans la réponse.
 Sinon, continuez la conversation pour recueillir plus de détails.
-Si l'utilisateur souhaite discuter d'un autre sujet en dehors des commandes, dites-lui que ce n'est pas votre rôle
+Si l'utilisateur souhaite discuter d'un autre sujet en dehors des commandes, dites-lui que ce n'est pas votre rôle.
 
 Lorsqu'une commande est détectée, structurez votre JSON comme suit :
 {
@@ -40,7 +40,7 @@ export async function getChatbotResponse(
   conversationHistory: ChatMessage[]
 ): Promise<ChatMessage | { message: ChatMessage; orderDetails: OrderDetails }> {
   const messages = [
-    { role: "system" as const, content: SYSTEM_PROMPT },
+    { role: "system" as const, content: SYSTEM_PROMPT }, // role developpeur
     ...conversationHistory,
   ];
 

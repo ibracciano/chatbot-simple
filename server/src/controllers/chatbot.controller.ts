@@ -24,6 +24,7 @@ export const chatbotController = async (
 
   try {
     const response = await getChatbotResponse(conversationHistory);
+    // console.log("response", response);
 
     if ("orderDetails" in response) {
       res.status(OK).json({
