@@ -30,25 +30,28 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({ histories }) => {
   // console.log("history", histories);
   // const [selected, setSelected] = useState<NewFormat[] | null>(histories);
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [index, setIndex] = useState<number>(0);
+  const [index, setIndex] = useState<string>("");
 
-  const handleClickHistory = (indexHistory: number) => {
+  const handleClickHistory = (indexHistory: string) => {
     setIndex(indexHistory);
     setOpenModal(true);
   };
 
   return (
-    <div className="w-full md:w-[30%] p-[16px]  border my-0 mx-auto">
+    <div className="w-full md:w-[30%] p-[16px] my-0 mx-auto">
       <h2 className="mb-4">Historiques des discussions</h2>
       <ul style={{ listStyle: "none", padding: 0 }}>
-        {histories?.map((h, i) => (
+        {histories?.map((h) => (
           <li
             key={h.id}
             className="flex items-center justify-between border border-[#ddd] p-[8px] mb-[8px] rounded-md"
           >
-            <strong>Historique {i + 1} </strong>
+            <strong>
+              #ID :{" "}
+              {Math.ceil(Math.random() * 1000000) + h.id.toLocaleUpperCase()}{" "}
+            </strong>
             <button
-              onClick={() => handleClickHistory(i)}
+              onClick={() => handleClickHistory(h.id)}
               className="ml-[16px] bg-gray-200 px-2 py-1 rounded-md cursor-pointer"
               // style={{ marginLeft: "1rem" }}
             >
@@ -65,6 +68,7 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({ histories }) => {
       w-screen h-screen 
       bg-black/50 
       flex items-center justify-center
+      
     "
           onClick={() => setOpenModal(false)}
         >
@@ -84,25 +88,29 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({ histories }) => {
             ) : (
               <>
                 {histories
-                  .filter((_historie, i) => i === index)
+                  .filter((historie) => historie.id === index)
                   .map((historie) => (
-                    <div key={historie.id}>
+                    <div key={historie.id} className="rounded-md">
                       <h3 className="mb-4">Discussion ID: {historie.id}</h3>
                       <h4 className="mb-4">Messages :</h4>
                       {historie.conversation.map((msg, i) => (
                         <div
                           key={i}
                           className={`
-                    p-2 rounded mb-2 
-                    ${msg.role === "assistant" ? "bg-gray-100" : "bg-blue-100"}
+                    p-2 rounded-md mb-2 
+                    ${
+                      msg.role === "assistant"
+                        ? "bg-gradient-to-r from-slate-900 to-slate-700 text-white"
+                        : "bg-gradient-to-r from-blue-800 to-indigo-900 hover:bg-blue-700 text-white ml-4"
+                    }
                   `}
                         >
-                          <strong>{msg.role}:</strong> {msg.content}
+                          <strong>{msg.role} :</strong> {msg.content}
                         </div>
                       ))}
                       <h4>Produits :</h4>
                       {historie.products.map((p, i) => (
-                        <div key={i} className="mb-4">
+                        <div key={i} className="mb-4 bg-gray-50 p-2 rounded-md">
                           <p>
                             <strong>Nom :</strong> {p.name}
                           </p>
