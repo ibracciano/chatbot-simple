@@ -24,7 +24,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }) => {
     >
       <input
         type="text"
-        className="flex-1 p-3 border text-white placeholder:text-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-[80%] p-3 border text-white placeholder:text-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Entrez votre message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
@@ -32,7 +32,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }) => {
       />
       <button
         type="submit"
-        className={`ml-3 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200 ${
+        className={`hidden ml-3 w-[20%] flex-1 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200 ${
           isLoading
             ? "bg-gradient-to-r from-blue-800 to-indigo-700 cursor-not-allowed"
             : "bg-gradient-to-r from-blue-800 to-indigo-900 hover:bg-blue-700"
@@ -40,6 +40,17 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }) => {
         disabled={isLoading}
       >
         {isLoading ? "Envoie..." : "Envoyez"}
+      </button>
+      <button
+        type="submit"
+        className={`ml-3 w-[20%] flex-1 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200 ${
+          isLoading
+            ? "bg-gradient-to-r from-blue-800 to-indigo-700 cursor-not-allowed"
+            : "bg-gradient-to-r from-blue-800 to-indigo-900 hover:bg-blue-700"
+        }`}
+        disabled={isLoading}
+      >
+        {isLoading ? "..." : ">"}
       </button>
     </form>
   );

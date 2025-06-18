@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Hello World"
+    },
+    {
+      "id": "2",
+      "title": "JSON Server est cool"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "body": "Super article !"
+    }
+  ],
+  "history": [
+    {
+      "0": {
+        "role": "assistant",
+        "content": "Bonjour! Comment puis-je vous aider avec votre commande aujourd'hui?"
+      },
+      "1": {
+        "role": "user",
+        "content": "Je veux commande deux chemise de taille M"
+      },
+      "2": {
+        "role": "assistant",
+        "content": "Super! Pouvez-vous me donner plus de détails sur le type de chemises que vous souhaitez? Et aussi, quel est votre nom, votre adresse de livraison et vos informations de contact pour compléter la commande?"
+      },
+      "3": {
+        "role": "user",
+        "content": "Chemise : Lacoste, nom: Ibrahim, adresse: Bingervile, contact: 0747850762 "
+      },
+      "4": {
+        "role": "assistant",
+        "content": "Merci, Ibrahim. Voici votre commande :\n\n\n\nVotre commande est en attente de traitement. Y a-t-il autre chose que je puisse faire pour vous?"
+      },
+      "id": "e7ea",
+      "products": [
+        {
+          "name": "chemise Lacoste",
+          "quantity": 2
+        }
+      ],
+      "customerName": "Ibrahim",
+      "deliveryAddress": "Bingerville",
+      "contactInfo": "0747850762",
+      "status": "pending"
+    },
+    {
+      "0": {
+        "role": "assistant",
+        "content": "Bonjour! Comment puis-je vous aider avec votre commande aujourd'hui?"
+      },
+      "1": {
+        "role": "user",
+        "content": "Je veux deux pizzas cremières, adresse: Bingerville, nom: Ouattara, contact: 0747850762"
+      },
+      "2": {
+        "role": "assistant",
+        "content": "Merci pour ces informations. Voici le résumé de votre commande :\n\n\n\nVotre commande est prête à être traitée. Y a-t-il autre chose que je puisse faire pour vous ?"
+      },
+      "id": "16dc",
+      "products": [
+        {
+          "name": "pizza crémière",
+          "quantity": 2
+        }
+      ],
+      "customerName": "Ouattara",
+      "deliveryAddress": "Bingerville",
+      "contactInfo": "0747850762",
+      "status": "pending"
+    }
+  ]
+}
